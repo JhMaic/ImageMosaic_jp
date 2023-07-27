@@ -1,0 +1,11 @@
+[
+  {
+    "xmlName": "haarcascade_frontalface_default.xml",
+    "scaleFactor": 1.1,
+    "minNeighbors": 3,
+    "minSize": [
+      10,
+      10
+    ]
+  }
+]
