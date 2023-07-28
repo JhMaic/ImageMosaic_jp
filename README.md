@@ -1,6 +1,6 @@
 ## インストール
 ```shell
-pip install Pillow==9.4.0 easyocr
+pip install -r requirements.txt
 ```
 
 ## モデル説明
