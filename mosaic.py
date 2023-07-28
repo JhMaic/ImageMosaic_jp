@@ -7,6 +7,7 @@ import os
 
 import cv2
 import easyocr
+import numpy as np
 
 
 def write_general_box(image, rect):
@@ -18,7 +19,7 @@ def write_general_box(image, rect):
 
 def write_text_box(image, text_rect, threshold=0):
     for box in text_rect:
-        cv2.rectangle(image, box[0], box[2], (255, 0, 0), 2)
+        cv2.rectangle(image, (int(box[0][0]),int(box[0][1])), (int(box[2][0]), int(box[2][1])), (255, 0, 0), 2)
 
 
 """
@@ -43,7 +44,7 @@ class ImageMosaic:
         self.classifier = []
         self.classifier_config = []
         for m in conf:
-            self.classifier += [cv2.CascadeClassifier("\\".join([_xml_path, m['xmlName']]))]
+            self.classifier += [cv2.CascadeClassifier("/".join([_xml_path, m['xmlName']]))]
             del m['xmlName']
             self.classifier_config += [m]
 
@@ -70,7 +71,7 @@ class ImageMosaic:
             output_directory = "processed"
             if not os.path.exists(output_directory):
                 os.makedirs(output_directory)
-            cv2.imwrite("\\".join([output_directory, filename]), image)
+            cv2.imwrite("/".join([output_directory, filename]), image)
             print(f"<{filename}> is successfully processed!")
 
     def detect_general_box(self, image_gray):
