@@ -32,6 +32,7 @@ class ImageMosaic:
         with open(_config_file_path) as f:
             conf = json.load(f)
 
+
         print('[ImageMosaic] Configuration is found...')
         print(conf)
 
