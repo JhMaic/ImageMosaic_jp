@@ -10,6 +10,7 @@ if __name__ == '__main__':
     im.mosaic('imgs')
     end = time.time()
 
+
     print(end - start)
 
 
